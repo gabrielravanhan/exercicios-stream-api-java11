@@ -11,7 +11,12 @@ public class Exercicio07 {
      */
     public static void main(String[] args) {
         List<String> nomes = Arrays.asList("Robson", "Célia", "Josué");
-        Map<String, Integer> mapNomeETamanho = nomes.stream().collect(Collectors.toMap(nome -> nome, String::length));
-        mapNomeETamanho.forEach((nome, tamanho) -> System.out.println("Nome: " + nome + " - Tamanho: " + tamanho));
+
+        Map<String, Integer> mapNomeETamanho = nomes.stream()
+                .collect(Collectors.toMap(nome -> nome, String::length));
+
+        mapNomeETamanho.forEach((nome, tamanho) ->
+                System.out.println("Nome: " + nome + " - Tamanho: " + tamanho)
+        );
     }
 }

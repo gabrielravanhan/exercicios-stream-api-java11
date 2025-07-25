@@ -20,9 +20,8 @@ public class Exercicio09 {
                 )
         );
 
-        palavrasPorTamanho.forEach(
-                (tamanho, palavrasAgrupadas) ->
-                        System.out.println("Tamanho: " + tamanho + " - Palavras: " + palavrasAgrupadas.toString())
+        palavrasPorTamanho.forEach((tamanho, palavrasAgrupadas) ->
+                System.out.println("Tamanho: " + tamanho + " - Palavras: " + palavrasAgrupadas.toString())
         );
     }
 }

@@ -21,7 +21,10 @@ public class Exercicio06 {
 
         List<Pedido> pedidos = Arrays.asList(pedido1, pedido2, pedido3);
 
-        List<Produto> produtosSemRepeticao = pedidos.stream().flatMap(pedido -> pedido.getProdutos().stream()).distinct().collect(Collectors.toList());
+        List<Produto> produtosSemRepeticao = pedidos.stream()
+                .flatMap(pedido -> pedido.getProdutos().stream())
+                .distinct()
+                .collect(Collectors.toList());
 
         produtosSemRepeticao.forEach(produto -> System.out.println(produto.getNome()));
     }
@@ -36,10 +39,6 @@ class Pedido {
     public Pedido(int id, List<Produto> produtos) {
         this.id = id;
         this.produtos = produtos;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public List<Produto> getProdutos() {

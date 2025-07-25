@@ -20,9 +20,17 @@ public class Exercicio15 {
 
         List<Transacao> transacoes = Arrays.asList(transacao1, transacao2, transacao3, transacao4, transacao5, transacao6);
 
-        Map<String, Double> transacaoPorCategoria = transacoes.stream().collect(Collectors.groupingBy(Transacao::getCategoria, Collectors.summingDouble(Transacao::getValor)));
+        Map<String, Double> transacaoPorCategoria = transacoes.stream()
+                .collect(
+                        Collectors.groupingBy(
+                                Transacao::getCategoria,
+                                Collectors.summingDouble(Transacao::getValor)
+                        )
+                );
 
-        transacaoPorCategoria.forEach((categoria, total) -> System.out.println("Categoria: " + categoria + " - Total: " + total));
+        transacaoPorCategoria.forEach((categoria, total) ->
+                System.out.println("Categoria: " + categoria + " - Total: " + total)
+        );
     }
 }
 
@@ -41,15 +49,7 @@ class Transacao {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
     public double getValor() {
         return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 }

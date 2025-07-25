@@ -12,6 +12,6 @@ public class Exercicio10 {
 
         boolean todosSaoPositivos = inteiros.stream().allMatch(numero -> numero > 0);
 
-        System.out.println("Todos são positivos: " + (todosSaoPositivos ? "si." : "não"));
+        System.out.println("Todos são positivos: " + (todosSaoPositivos ? "sim." : "não"));
     }
 }

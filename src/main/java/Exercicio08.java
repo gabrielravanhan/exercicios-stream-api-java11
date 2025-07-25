@@ -18,10 +18,15 @@ public class Exercicio08 {
 
         Map<String, Double> mapAlunoEMedia = alunos.stream().collect(Collectors.toMap(
                 Aluno::getNome,
-                aluno -> aluno.getNotas().stream().mapToDouble(nota -> nota).average().orElse(0d)
+                aluno -> aluno.getNotas().stream()
+                        .mapToDouble(nota -> nota)
+                        .average()
+                        .orElse(0d)
         ));
 
-        mapAlunoEMedia.forEach((nome, media) -> System.out.println("Aluno: " + nome + " - Média: " + media));
+        mapAlunoEMedia.forEach((nome, media) ->
+                System.out.println("Aluno: " + nome + " - Média: " + media)
+        );
     }
 }
 
@@ -40,15 +45,7 @@ class Aluno {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public List<Double> getNotas() {
         return notas;
-    }
-
-    public void setNotas(List<Double> notas) {
-        this.notas = notas;
     }
 }

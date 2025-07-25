@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Exercicio11 {
 
@@ -9,10 +7,10 @@ public class Exercicio11 {
      * <p>Dada uma lista de nomes (List(String)), encontre o nome com o maior número de caracteres. Em caso de empate, retorne o primeiro encontrado. Use max(Comparator).</p>
      */
     public static void main(String[] args) {
-        List<String> nomes = Arrays.asList("Cleiton", "Carolina", "Waldemar");
+        List<String> nomes = new ArrayList<>(Arrays.asList("teste", "robinho jr."));
 
-        String nomeComMaiorNumeroDeCaracteres = nomes.stream().max(Comparator.comparingInt(String::length)).stream().findFirst().orElse("Lista vazia.");
+        Optional<String> max = nomes.stream().max(Comparator.comparingInt(String::length));
 
-        System.out.println(nomeComMaiorNumeroDeCaracteres);
+        max.ifPresentOrElse(System.out::println, () -> System.out.println("lista vazia"));
     }
 }
